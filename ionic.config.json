@@ -1,0 +1,7 @@
+{
+  "name": "devfitness",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
