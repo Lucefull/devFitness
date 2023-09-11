@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Exercicio, Treino} from '../../model/estruturas'
+import { TreinoService } from '../treino.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,9 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  treinos : Treino [] = []
 
+  constructor(private serv: TreinoService) {
+    this.treinos = this.serv.treinos
+  }
 }
