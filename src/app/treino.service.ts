@@ -8,7 +8,7 @@ export class TreinoService {
 
   treinos : Treino[] = []
 
-  constructor() { 
+  constructor() {
     this.mock()
   }
   mock() {

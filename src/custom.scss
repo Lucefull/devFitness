@@ -13,3 +13,16 @@ ion-button[shape="circle"] {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
+
+ion-input[fill="outline"] {
+  --border-radius: 1rem !important;
+  --border-color: black !important;
+}
+
+ion-input[fill="outline"]:focus-within {
+  --border-color: var(--ion-color-primary) !important;
+}
+
+ion-button {
+  text-transform: none;
+}
