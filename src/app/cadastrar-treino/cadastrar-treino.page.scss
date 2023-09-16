@@ -1,0 +1,29 @@
+.content {
+  padding: 20px;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.card {
+  background-color: #404040;
+  border-radius: 1rem;
+}
+
+.exercicio-label {
+  color: #27ae60;
+}
+
+.exercicio-value {
+  font-size: x-large;
+}
+
+.salvar-button {
+  --border-radius: 1rem;
+  width: 9rem;
+  --border-radius: 2rem;
+  height: 2.5rem;
+  padding-left: 1rem;
+  font-size: x-large;
+  font-weight: 500;
+}

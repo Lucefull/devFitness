@@ -1,0 +1,28 @@
+ion-button[shape="circle"] {
+  --border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+
+  --padding-start: 0 !important;
+  --padding-end: 0 !important;
+  --padding-top: 0 !important;
+  --padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+ion-input[fill="outline"] {
+  --border-radius: 1rem !important;
+  --border-color: black !important;
+}
+
+ion-input[fill="outline"]:focus-within {
+  --border-color: var(--ion-color-primary) !important;
+}
+
+ion-button {
+  text-transform: none;
+}

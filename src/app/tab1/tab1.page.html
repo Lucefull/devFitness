@@ -1,11 +1,15 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-title>
-      Treinos
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-icon name="add-circle-outline" style="font-size: 24px;"></ion-icon>
-    </ion-buttons>
+  <ion-toolbar>
+    <ion-title> Treinos </ion-title>
+    <ion-button
+      class="cadastrar-treino-button"
+      color="primary"
+      shape="circle"
+      slot="end"
+      [routerLink]="['/cadastrar-treino']"
+    >
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -14,10 +18,10 @@
     <ion-item-sliding *ngFor="let item of treinos">
       <ion-item class="item">
         <ion-label>
-          <ion-text >
+          <ion-text>
             <h1>{{item.name}}</h1>
           </ion-text>
-          <ion-text >
+          <ion-text>
             <p>{{item.tipo}}</p>
           </ion-text>
           <ion-text>
@@ -25,15 +29,9 @@
           </ion-text>
         </ion-label>
         <div class="actions">
-          <button class="delete-btn">
-            Excluir
-          </button>
-          <button class="edit-btn">
-            Editar
-          </button>
-          <button class="begin-btn">
-            Começar
-          </button>
+          <button class="delete-btn">Excluir</button>
+          <button class="edit-btn">Editar</button>
+          <button class="begin-btn">Começar</button>
         </div>
       </ion-item>
     </ion-item-sliding>
