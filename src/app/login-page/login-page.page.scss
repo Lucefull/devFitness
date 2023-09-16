@@ -1,0 +1,30 @@
+ion-content {
+  --display: flex;
+  --justify-content: space-evenly;
+  text-align: center;
+  img {
+    margin-top: 25vh;
+  }
+  h1 {
+    color: #fff;
+    text-align: center;
+    font-family: "ZCOOL KuaiLe", sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  ion-button {
+    --border-radius: 50px;
+    margin-top: 35vh;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px; /* 137.5% */
+    letter-spacing: -0.32px;
+    @media screen and (max-width: 450px) {
+      width: 90vw;
+    }
+  }
+}
