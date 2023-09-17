@@ -32,7 +32,7 @@
         <ion-row>
           <ion-col />
           <ion-col>
-            <ion-button expand="block" (click)="doSomething()">Adicionar</ion-button>
+            <ion-button expand="block" (click)="adicionarExercicio()">Adicionar</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -64,7 +64,7 @@
     </div>
 
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button class="salvar-button"> Salvar </ion-fab-button>
+      <ion-fab-button class="salvar-button" (click)="salvar()"> Salvar </ion-fab-button>
     </ion-fab>
   </div>
 </ion-content>
