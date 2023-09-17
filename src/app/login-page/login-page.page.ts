@@ -1,35 +1,20 @@
+import { AuthService } from './../authService.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  getAuth,
-  Auth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from 'firebase/auth';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.page.html',
   styleUrls: ['./login-page.page.scss'],
 })
 export class LoginPagePage implements OnInit {
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.authService.isAutheticated) this.router.navigate(['app']);
+  }
 
-  login() {
-    console.log('login');
-    const provider = new GoogleAuthProvider();
-    const auth = getAuth();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential?.accessToken;
-        const user = result.user;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  async login() {
+    await this.authService.login();
+    if (this.authService.isAutheticated) this.router.navigate(['']);
   }
 }
