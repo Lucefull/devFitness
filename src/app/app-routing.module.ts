@@ -3,14 +3,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login-page',
     loadChildren: () =>
       import('./login-page/login-page.module').then(
         (e) => e.LoginPagePageModule
       ),
   },
   {
-    path: 'app',
+    path: '',
     loadChildren: () =>
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
   },
@@ -19,13 +19,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./cadastrar-treino/cadastrar-treino.module').then(
         (m) => m.CadastrarTreinoPageModule
-      ),
-  },
-  {
-    path: 'login-page',
-    loadChildren: () =>
-      import('./login-page/login-page.module').then(
-        (m) => m.LoginPagePageModule
       ),
   },
 ];
