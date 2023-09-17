@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Exercicio, Treino} from '../../model/estruturas'
-import { TreinoService } from '../treino.service';
+import { TreinoService } from '../services/treino.service';
 
 @Component({
   selector: 'app-tab1',
