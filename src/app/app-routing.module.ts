@@ -16,11 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'cadastrar-treino',
-    loadChildren: () =>
-      import('./cadastrar-treino/cadastrar-treino.module').then(
-        (m) => m.CadastrarTreinoPageModule
-      ),
-  },
+    loadChildren: () => import('./cadastrar-treino/cadastrar-treino.module').then( m => m.CadastrarTreinoPageModule)
+  }
 ];
 @NgModule({
   imports: [
