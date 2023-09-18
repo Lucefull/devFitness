@@ -28,7 +28,7 @@ export class AuthService {
       this.user
     );
 
-    return this.user !== null;
+    return auth.currentUser !== null;
   }
 
   async login() {
