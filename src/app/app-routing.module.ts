@@ -21,6 +21,10 @@ const routes: Routes = [
         (m) => m.CadastrarTreinoPageModule
       ),
   },
+  {
+    path: 'exercicios/:id',
+    loadChildren: () => import('./exercicios/exercicios.module').then( m => m.ExerciciosPageModule)
+  },
 ];
 @NgModule({
   imports: [
