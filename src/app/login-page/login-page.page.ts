@@ -9,12 +9,10 @@ import { Router } from '@angular/router';
 export class LoginPagePage implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-    if (this.authService.isAutheticated) this.router.navigate(['app']);
-  }
+  ngOnInit() {}
 
   async login() {
     await this.authService.login();
-    if (this.authService.isAutheticated) this.router.navigate(['']);
+    if (await this.authService.isAutheticated()) this.router.navigate(['']);
   }
 }
