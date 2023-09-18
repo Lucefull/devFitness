@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { initializeApp } from 'firebase/app';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor() {
+    const firebaseConfig = {
+      apiKey: environment.apiKey,
+      authDomain: environment.authDomain,
+      databaseURL: environment.databaseURL,
+      projectId: environment.projectId,
+      storageBucket: environment.storageBucket,
+      messagingSenderId: environment.messagingSenderId,
+      appId: environment.appId,
+    };
+    const app = initializeApp(firebaseConfig);
+  }
 }
