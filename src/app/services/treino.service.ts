@@ -9,20 +9,18 @@ export class TreinoService {
   treinos : Treino[] = []
 
   constructor() {
-    //this.mock()
+    this.mock()
   }
-  /*mock() {
-    this.treinos[0] = new Treino(this.treinos.length + 1, "Teste", "Teste", 30)
-    this.treinos[1] = new Treino(this.treinos.length + 1, "Testinha", "Testinha", 88)
-    this.treinos[2] = new Treino(this.treinos.length + 1, "Testudo", "Testudo", 90)
-  }*/
-  getTreinoById(id : number) {
+  mock() {
+    this.addTreino("Teste", "Teste", 30, [new Exercicio(1, "Supino", 3, 12), new Exercicio(2, "Crucifixo", 3, 12)])
+  }
+  getTreinoById(id : number): Treino {
     for(let index = 0; index < this.treinos.length; index++){
       if(id == this.treinos[index].id) {
         return this.treinos[index]
       }
     }
-    return
+    return new Treino(-1, "", "", 0);
   }
   updateStatus(id : number) {
     if(this.treinos[id - 1].isDone){
