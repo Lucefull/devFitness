@@ -14,5 +14,6 @@ export class LoginPagePage implements OnInit {
   async login() {
     await this.authService.login();
     if (await this.authService.isAutheticated()) this.router.navigate(['']);
+
   }
 }
