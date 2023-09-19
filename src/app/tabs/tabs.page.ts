@@ -11,9 +11,7 @@ export class TabsPage {
   constructor(private authService: AuthService, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
-    if (!(await this.authService.isAutheticated()))
+    if (await this.authService.isAutheticated())
       this.router.navigate(['login-page']);
-
-    console.log(this.authService.user);
   }
 }
