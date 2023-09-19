@@ -1,17 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <div class="header">
+      <img src="" alt="" />
+      <h1>{{username}}</h1>
+    </div>
+    <div class="content">
+      <p>data ultima avaliação</p>
+      <p class="green-text">12/09/2023</p>
+    </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    <div class="content">
+      <h1>composição corporal</h1>
+      <h2>IMC</h2>
+      <p class="green-text imc">30.45</p>
+      <section>
+        <div class="item">
+          <p>musculo</p>
+          <p class="green-text">39%</p>
+        </div>
+        <div class="item">
+          <p>gordura</p>
+          <p class="green-text">26%</p>
+        </div>
+        <div class="item">
+          <p>resíduos</p>
+          <p class="green-text">24%</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="content">
+      <section>
+        <div class="item">
+          <p>musculo</p>
+          <p class="green-text">39%</p>
+        </div>
+        <div class="item">
+          <p>gordura</p>
+          <p class="green-text">26%</p>
+        </div>
+        <div class="item">
+          <p>resíduos</p>
+          <p class="green-text">24%</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="button-area">
+      <button>logout</button>
+      <button>salvar</button>
+    </div>
+  </div>
 </ion-content>
