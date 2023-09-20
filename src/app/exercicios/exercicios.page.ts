@@ -20,4 +20,8 @@ export class ExerciciosPage implements OnInit {
   ngOnInit() {
   }
 
+  terminarTreino() {
+    
+  }
+
 }
