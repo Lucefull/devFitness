@@ -12,7 +12,7 @@ export class TreinoService {
     this.mock()
   }
   mock() {
-    this.addTreino("Teste", "Teste", 30, [new Exercicio(1, "Supino", 3, 12), new Exercicio(2, "Crucifixo", 3, 12)])
+    this.addTreino("Teste", "Peito", [new Exercicio(1, "Supino", 3, 12), new Exercicio(2, "Crucifixo", 3, 12)])
   }
   getTreinoById(id : number): Treino {
     for(let index = 0; index < this.treinos.length; index++){
@@ -20,7 +20,7 @@ export class TreinoService {
         return this.treinos[index]
       }
     }
-    return new Treino(-1, "", "", 0);
+    return new Treino(-1, "", "",);
   }
   updateStatus(id : number) {
     if(this.treinos[id - 1].isDone){
@@ -32,14 +32,13 @@ export class TreinoService {
   deleteTreino(id : number) {
     this.treinos.splice(id - 1, 1)
   }
-  addTreino(tipo : string, name : string, time : number, exercicios: Exercicio[]) {
-    let treino = new Treino(this.treinos.length + 1, tipo, name, time);
+  addTreino(name : string, descricao : string, exercicios: Exercicio[]) {
+    let treino = new Treino(this.treinos.length + 1, name, descricao);
     treino.exercicios = exercicios;
     this.treinos.push(treino)
   }
-  updateTreino(id : number, tipo : string, name : string, tempo : number) {
-    this.treinos[id - 1].tipo = tipo
-    this.treinos[id - 1].name = name
-    this.treinos[id - 1].tempo = tempo
+  updateTreino(id : number, name : string, descricao : string) {
+    this.treinos[id - 1].descricao = descricao
+    this.treinos[id - 1].name = name    
   }
 }

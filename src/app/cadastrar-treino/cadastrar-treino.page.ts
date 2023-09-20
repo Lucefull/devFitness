@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CadastrarTreinoPage implements OnInit {
   numeroSeries: string = "";
+  descricao: string ="";
   nomeTreino: string ="";
   nomeExercicio: string ="";
   numeroRepeticoes: string = "";
@@ -33,7 +34,7 @@ export class CadastrarTreinoPage implements OnInit {
   }
 
   salvar(){
-    this.treinoService.addTreino(this.nomeTreino, this.nomeTreino, 30, this.exercicios)
+    this.treinoService.addTreino(this.nomeTreino, this.descricao, this.exercicios)
     this.nomeTreino = "";
     this.exercicios = [];
     this.router.navigate(['']);

@@ -3,7 +3,7 @@ export class Exercicio {
      name : string
      serie : number
      repeticoes : number
-     isDone : boolean
+     isDone: boolean    
 
     constructor(id : number, name : string, serie : number, repeticoes: number) {
         this.id = id
@@ -11,22 +11,20 @@ export class Exercicio {
         this.serie = serie
         this.repeticoes = repeticoes
         this.isDone = false
-    }
+    }    
 }
 
 export class Treino {
      id : number
-     tipo : string
+     descricao : string
      name : string
-     tempo : number
      data : Date
      exercicios : Exercicio[]
      isDone : boolean
 
-    constructor(id : number, tipo : string, name : string, tempo : number) {
+    constructor(id : number, name : string, descricao : string) {
         this.id = id
-        this.tempo = tempo
-        this.tipo = tipo
+        this.descricao = descricao
         this.name = name
         this.data = new Date()
         this.exercicios = []
