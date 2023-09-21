@@ -82,14 +82,24 @@
 
     &.button-area {
       display: flex;
-      justify-content: space-evenly;
+      position: fixed;
+      bottom: 15px;
       margin-top: 20px;
       button {
+        margin-left: 30px;
         background: #27ae60;
         padding: 15px 40px;
         font-size: 24px;
         border-radius: 15px;
       }
     }
+    // &:nth-last-child(-n + 1) {
+    //   display: flex;
+    //   justify-content: space-evenly;
+    //   position: fixed;
+    //   bottom: 15px;
+    //   button {
+    //   }
+    // }
   }
 }

@@ -1,33 +1,42 @@
 import { Injectable } from '@angular/core';
+import { FirebaseApp } from '@angular/fire/app';
+import { provideAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { initializeApp } from 'firebase/app';
 import {
   GoogleAuthProvider,
   User,
   getAuth,
   signInWithPopup,
+  signOut,
 } from 'firebase/auth';
-import { CurrentUser } from './interfaces/CurrentUser';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {}
-
+  constructor(private router: Router) {}
   user: User | null = null;
   token: string | undefined;
 
-  async isAutheticated(): Promise<boolean> {
-    const auth = getAuth();
-    this.user = auth.currentUser;
+  isAutheticated(): boolean {
+    const auth = sessionStorage.getItem('user');
+    if (auth) {
+      const user: User = JSON.parse(auth);
 
-    return auth.currentUser !== null;
+      return true;
+    }
+    return false;
   }
 
-  async getUser() {
-    const auth = await getAuth();
-    const user = auth.currentUser;
+  getUser() {
+    const auth = sessionStorage.getItem('user');
+    if (auth) {
+      const user: User = JSON.parse(auth);
 
-    return user;
+      return user;
+    }
+    return null;
   }
 
   async login() {
@@ -38,9 +47,23 @@ export class AuthService {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         this.token = credential?.accessToken;
         this.user = result.user;
+
+        sessionStorage.setItem('user', JSON.stringify(result.user));
       })
       .catch((error) => {
         console.error(error);
+      });
+  }
+
+  logOut() {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        sessionStorage.removeItem('user');
+        this.router.navigate(['login-page']);
+      })
+      .catch((error) => {
+        // An error happened.
       });
   }
 }

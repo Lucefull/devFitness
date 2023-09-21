@@ -9,11 +9,10 @@ import { Router } from '@angular/router';
 export class LoginPagePage implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  async ngOnInit() {}
 
   async login() {
     await this.authService.login();
-    if (await this.authService.isAutheticated()) this.router.navigate(['']);
-
+    if (this.authService.isAutheticated()) this.router.navigate(['']);
   }
 }
