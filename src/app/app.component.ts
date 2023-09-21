@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { initializeApp } from 'firebase/app';
+import { getDatabase } from 'firebase/database';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,7 @@ import { initializeApp } from 'firebase/app';
 })
 export class AppComponent {
   constructor() {
-    const firebaseConfig = {
-      apiKey: environment.apiKey,
-      authDomain: environment.authDomain,
-      databaseURL: environment.databaseURL,
-      projectId: environment.projectId,
-      storageBucket: environment.storageBucket,
-      messagingSenderId: environment.messagingSenderId,
-      appId: environment.appId,
-    };
-    const app = initializeApp(firebaseConfig);
+    const app = initializeApp(environment.firebaseConfig);
+    const database = getDatabase(app);
   }
 }

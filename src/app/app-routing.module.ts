@@ -23,7 +23,10 @@ const routes: Routes = [
   },
   {
     path: 'exercicios/:id',
-    loadChildren: () => import('./exercicios/exercicios.module').then( m => m.ExerciciosPageModule)
+    loadChildren: () =>
+      import('./exercicios/exercicios.module').then(
+        (m) => m.ExerciciosPageModule
+      ),
   },
 ];
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../authService.service';
-import { User, getAuth } from 'firebase/auth';
+import { GoogleAuthProvider, User, getAuth } from 'firebase/auth';
 
 @Component({
   selector: 'app-tab3',
@@ -9,38 +9,15 @@ import { User, getAuth } from 'firebase/auth';
 })
 export class Tab3Page implements OnInit {
   user?: User | null;
-  username: string;
-  constructor() {
-    this.username = 'Luan Steffens';
+
+  username?: string;
+  constructor(private authService: AuthService) {
+    this.user = authService.getUser();
   }
 
-  ngOnInit() {
-    console.log(this.user);
-    // const auth = await getAuth();
-    // console.log(
-    //   '🚀 ~ file: tab3.page.ts:19 ~ Tab3Page ~ ngOnInit ~ auth:',
-    //   auth
-    // );
-    // const user = await auth.currentUser;
-    // console.log(
-    //   '🚀 ~ file: tab3.page.ts:19 ~ Tab3Page ~ ngOnInit ~ user:',
-    //   user
-    // );
-    // this.user = user;
+  async ngOnInit() {}
+
+  logOut() {
+    this.authService.logOut();
   }
-
-  // async getUser(): Promise<User | null> {
-  //   const auth = await getAuth();
-  //   console.log(
-  //     '🚀 ~ file: tab3.page.ts:19 ~ Tab3Page ~ getUser ~ auth:',
-  //     auth
-  //   );
-  //   // const user = (await auth.currentUser) as User;
-  //   // console.log(
-  //   //   '🚀 ~ file: tab3.page.ts:24 ~ Tab3Page ~ getUser ~ user:',
-  //   //   user
-  //   // );
-
-  //   return null;
-  // }
 }
