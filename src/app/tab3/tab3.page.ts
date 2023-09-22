@@ -4,6 +4,7 @@ import { AuthService } from '../authService.service';
 import { User } from 'firebase/auth';
 import { DatabaseService } from '../database.service';
 
+
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -52,6 +53,7 @@ export class Tab3Page implements OnInit {
     this.editable = true;
   }
 
+
   logOut() {
     this.authService.logOut();
   }
@@ -93,4 +95,5 @@ export class Tab3Page implements OnInit {
     altura = altura;
     return Math.round(kilos / (altura * altura));
   }
+
 }

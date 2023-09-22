@@ -60,15 +60,18 @@
           }
         }
       }
+
       input {
         width: 40px;
       }
+
 
       section {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         margin: 10px;
+
         padding: 15px;
 
         div {
@@ -92,6 +95,7 @@
       margin-top: 20px;
       button {
         margin: 0px 20px 20px 20px;
+
         background: #27ae60;
         padding: 15px 40px;
         font-size: 24px;

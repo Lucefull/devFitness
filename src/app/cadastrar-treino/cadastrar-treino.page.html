@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar >
     <ion-back-button slot="start" icon="arrow-back-sharp"></ion-back-button>
-    <ion-title>Treinos</ion-title>
+    <ion-title>Novo Treino</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,6 +11,11 @@
       class="input"
       fill="outline"
       placeholder="Nome do treino" [(ngModel)]="nomeTreino"
+    ></ion-input>
+    <ion-input
+      class="input"
+      fill="outline"
+      placeholder="Descrição" [(ngModel)]="descricao"
     ></ion-input>
     <div class="card">
       <ion-grid>

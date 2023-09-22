@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+
 import { environment } from 'src/environments/environment';
 import { getAuth } from 'firebase/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     provideAuth(() => getAuth()),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -12,32 +12,35 @@
     </ion-toolbar>
   </ion-header>
 </ion-content-->
-<ion-content [fullscreen]="true">
+<ion-content class="content" [fullscreen]="true">
   <div class="card" *ngFor="let item of treino.exercicios">
-    <ion-grid >
-      <ion-row
-        ><ion-col
-          ><ion-label>
-            <h4 class="exercicio-label-2">{{item.name}}</h4>
-
-          </ion-label></ion-col
-        ></ion-row
-      >
-      <ion-row
-        ><ion-col
-          ><ion-label>
-            <h4 >Repetições: {{item.repeticoes}}</h4>
-
-          </ion-label></ion-col
-        ><ion-col
-          ><ion-label>
-            <h4>Séries: {{item.serie}}</h4>
-
-          </ion-label></ion-col
-        ></ion-row
-      >
-    </ion-grid>
-  </div>
+      <ion-checkbox labelPlacement="end" [(ngModel)]="item.isDone">     
+        <ion-grid>
+          <ion-row
+            ><ion-col
+              >
+              <ion-label>
+                <h4 class="exercicio-label-2">{{item.name}}</h4>
+              </ion-label></ion-col
+            ></ion-row
+          >
+          <ion-row
+            ><ion-col
+              ><ion-label>
+                <h4 >Repetições: {{item.repeticoes}}</h4>
+              </ion-label></ion-col
+            ><ion-col
+              ><ion-label>
+                <h4 class="h4-series">Séries: {{item.serie}}</h4>
+              </ion-label></ion-col
+            ></ion-row
+          >
+        </ion-grid>
+      </ion-checkbox>
+    </div>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button class="salvar-button" (click)="terminarTreino()">Terminar treino</ion-fab-button>
+    </ion-fab>
 </ion-content>
 
 
