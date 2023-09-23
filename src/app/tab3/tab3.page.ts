@@ -4,7 +4,6 @@ import { AuthService } from '../authService.service';
 import { User } from 'firebase/auth';
 import { DatabaseService } from '../database.service';
 
-
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -32,9 +31,8 @@ export class Tab3Page implements OnInit {
     this.user = authService.getUser();
   }
 
-  ngOnInit() {
-    this.dataService.getUserStats().then((e) => {
-      console.log(e);
+  async ngOnInit() {
+    await this.dataService.getUserStats().then((e) => {
       if (e !== null) {
         this.userDetails = e;
         this.musculo = e.musculo;
@@ -52,7 +50,6 @@ export class Tab3Page implements OnInit {
   toggleEditable() {
     this.editable = true;
   }
-
 
   logOut() {
     this.authService.logOut();
@@ -95,5 +92,4 @@ export class Tab3Page implements OnInit {
     altura = altura;
     return Math.round(kilos / (altura * altura));
   }
-
 }

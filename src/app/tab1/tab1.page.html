@@ -14,23 +14,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="container">
-  <ion-list lines="none">
-    <ion-item-sliding *ngFor="let item of treinos">
-      <ion-item class="item">
-        <ion-label>
-          <ion-text>
-            <h1>{{item.name}}</h1>
-          </ion-text>
-          <ion-text>
-            <p>{{item.descricao}}</p>
-          </ion-text>          
-        </ion-label>
-        <div class="actions">
-          <!--button class="delete-btn">Excluir</button-->
-          <!--button class="edit-btn">Editar</button-->
-          <button class="begin-btn" (click)="navToExercicios(item)" color="secondary">Começar</button>
-        </div>
-      </ion-item>
-    </ion-item-sliding>
-  </ion-list>
+  <div *ngFor="let item of treinos">
+    <div class="item">
+      <div class="descricao">
+        <h1>{{item.name}}</h1>
+
+        <p>{{item.descricao}}</p>
+      </div>
+      <div class="actions">
+        <!--button class="delete-btn">Excluir</button-->
+        <!--button class="edit-btn">Editar</button-->
+        <button
+          class="begin-btn"
+          (click)="navToExercicios(item)"
+          color="secondary"
+        >
+          Começar
+        </button>
+      </div>
+    </div>
+  </div>
 </ion-content>

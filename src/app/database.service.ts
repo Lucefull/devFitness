@@ -24,7 +24,7 @@ export class DatabaseService {
   async getUserStats(): Promise<UserStats | null> {
     let response: UserStats | null = null;
     const user = this.authService.getUser()?.uid;
-    await get(child(this.dbRef, user as string)).then(
+    await get(child(this.dbRef, `${user}/usuario` as string)).then(
       (e) => (response = e.val() as UserStats)
     );
     return response;
@@ -32,6 +32,7 @@ export class DatabaseService {
 
   async updateUsuario(data: UserStats): Promise<void> {
     const uid = this.authService.getUser()?.uid as string;
-    return await update(this.dbRef, { [uid]: data });
+    const path = uid + '/usuario';
+    return await update(this.dbRef, { [path]: data });
   }
 }
