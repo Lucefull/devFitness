@@ -1,17 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Histórico
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Histórico</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="content">
+    <h1>Historico</h1>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <div *ngFor="let item of treinos">
+      <div class="item">
+        <section>
+          <h1>{{item.name}}</h1>
+
+          <p>{{item.descricao}}</p>
+        </section>
+        <section class="finished">
+          <h2>Concluido</h2>
+          <p>23/09/2023</p>
+        </section>
+      </div>
+    </div>
+  </div>
 </ion-content>
