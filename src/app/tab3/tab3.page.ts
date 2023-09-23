@@ -1,8 +1,8 @@
 import { UserStats } from './../interfaces/user-stats';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../authService.service';
+import { AuthService } from '../services/authService.service';
 import { User } from 'firebase/auth';
-import { DatabaseService } from '../database.service';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-tab3',

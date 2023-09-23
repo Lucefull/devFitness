@@ -1,4 +1,5 @@
-import { UserStats } from './interfaces/user-stats';
+import { Historico } from '../interfaces/historico';
+import { UserStats } from '../interfaces/user-stats';
 import { AuthService } from './authService.service';
 import { Injectable } from '@angular/core';
 import {
@@ -34,5 +35,15 @@ export class DatabaseService {
     const uid = this.authService.getUser()?.uid as string;
     const path = uid + '/usuario';
     return await update(this.dbRef, { [path]: data });
+  }
+
+  async getHistorico(): Promise<{} | Historico[]> {
+    let hist = {};
+    const uid = this.authService.getUser()?.uid as string;
+    const path = uid + '/historico';
+    await get(child(this.dbRef, path))
+      .then((e) => (hist = e.val() as Historico[]))
+      .catch((error) => console.error(error));
+    return hist;
   }
 }

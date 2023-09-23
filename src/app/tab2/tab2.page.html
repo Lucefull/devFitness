@@ -2,16 +2,16 @@
   <div class="content">
     <h1>Historico</h1>
 
-    <div *ngFor="let item of treinos">
+    <div *ngFor="let item of historico">
       <div class="item">
         <section>
-          <h1>{{item.name}}</h1>
+          <h1>{{item.nomeTreino}}</h1>
 
-          <p>{{item.descricao}}</p>
+          <p>{{item.categoria}}</p>
         </section>
         <section class="finished">
           <h2>Concluido</h2>
-          <p>23/09/2023</p>
+          <p>{{item.dataConclusao}}</p>
         </section>
       </div>
     </div>
