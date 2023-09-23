@@ -29,9 +29,12 @@ export class Tab3Page implements OnInit {
     private dataService: DatabaseService
   ) {
     this.user = authService.getUser();
+    this.getDadosUsuario();
   }
 
-  async ngOnInit() {
+  ngOnInit(): void {}
+
+  async getDadosUsuario(): Promise<void> {
     await this.dataService.getUserStats().then((e) => {
       if (e !== null) {
         this.userDetails = e;
@@ -84,7 +87,10 @@ export class Tab3Page implements OnInit {
     this.userDetails = data;
     this.dataService
       .updateUsuario(data)
-      .then((e) => (this.editable = false))
+      .then((e) => {
+        alert('Avaliação salva');
+        this.editable = false;
+      })
       .catch((e) => console.error(e));
   }
 
