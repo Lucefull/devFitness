@@ -6,7 +6,7 @@
 }
 
 .card {
-  background-color: #d1d1d1;
+  background-color: #595959;
   border-radius: 1rem;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .exercicio-value {
-  font-size: x-large;
+  font-size: large;
 }
 
 .salvar-button {
@@ -24,6 +24,16 @@
   --border-radius: 2rem;
   height: 2.5rem;
   padding-left: 1rem;
-  font-size: x-large;
+  font-size: large;
+  font-weight: 500;
+}
+
+.adicionar-button {
+  --border-radius: 1rem;
+  width: auto;
+  --border-radius: 2rem;
+  height: 2.5rem;
+  padding-left: 1rem;
+  font-size: large;
   font-weight: 500;
 }

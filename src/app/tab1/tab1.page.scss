@@ -51,10 +51,12 @@ ion-icon:hover {
 }
 
 .actions .begin-btn {
+  border-radius: 1rem;
   border-color: rgb(59, 156, 72);
-  color: rgb(59, 156, 72);
+  background-color: rgb(59, 156, 72);
 }
 
 ion-label {
   margin-right: -1.5em;
 }
+

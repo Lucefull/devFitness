@@ -26,3 +26,14 @@ ion-input[fill="outline"]:focus-within {
 ion-button {
   text-transform: none;
 }
+
+ion-header {
+  --ion-background-color: #333;
+  --ion-text-color: #fff
+}
+
+ion-content {
+  --ion-background-color: #333;
+  --ion-text-color: #fff
+}
+
