@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true" class="container">
   <section>
     <h1>Treinos</h1>
-    <button>
+    <button [routerLink]="['/cadastrar-treino']">
       <ion-icon size="50" name="add"></ion-icon>
     </button>
   </section>
@@ -16,13 +16,7 @@
       <div class="actions">
         <!--button class="delete-btn">Excluir</button-->
         <!--button class="edit-btn">Editar</button-->
-        <button
-          class="begin-btn"
-          (click)="navToExercicios(item)"
-          color="secondary"
-        >
-          Começar
-        </button>
+        <button (click)="navToExercicios(item)">Começar</button>
       </div>
     </div>
   </div>
