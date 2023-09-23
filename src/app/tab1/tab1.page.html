@@ -1,19 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title> Treinos </ion-title>
-    <ion-button
-      class="cadastrar-treino-button"
-      color="primary"
-      shape="circle"
-      slot="end"
-      [routerLink]="['/cadastrar-treino']"
-    >
-      <ion-icon name="add"></ion-icon>
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="container">
+  <section>
+    <h1>Treinos</h1>
+    <button>
+      <ion-icon size="50" name="add"></ion-icon>
+    </button>
+  </section>
+
   <div *ngFor="let item of treinos">
     <div class="item">
       <div class="descricao">
