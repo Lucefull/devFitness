@@ -14,7 +14,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="container">
-  <ion-list>
+  <ion-list lines="none">
     <ion-item-sliding *ngFor="let item of treinos">
       <ion-item class="item">
         <ion-label>
@@ -28,7 +28,7 @@
         <div class="actions">
           <!--button class="delete-btn">Excluir</button-->
           <!--button class="edit-btn">Editar</button-->
-          <button class="begin-btn" (click)="navToExercicios(item)">Começar</button>
+          <button class="begin-btn" (click)="navToExercicios(item)" color="secondary">Começar</button>
         </div>
       </ion-item>
     </ion-item-sliding>
