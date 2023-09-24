@@ -10,6 +10,7 @@ import {
   ref,
   update,
 } from 'firebase/database';
+import { Treino } from './interfaces/treino';
 
 @Injectable({
   providedIn: 'root',

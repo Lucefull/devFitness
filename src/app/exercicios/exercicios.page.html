@@ -5,16 +5,9 @@
   </ion-toolbar>
 </ion-header>
 
-<!--ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Exercicios</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content-->
 <ion-content class="content" [fullscreen]="true">
   <div class="card" *ngFor="let item of treino.exercicios">
-      <ion-checkbox labelPlacement="end" [(ngModel)]="item.isDone">     
+      <ion-checkbox labelPlacement="end">     
         <ion-grid>
           <ion-row
             ><ion-col
