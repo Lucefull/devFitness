@@ -1,10 +1,10 @@
-import { Exercicio } from "./Exercicio"
+import { Exercicio } from './exercicio';
 
 export interface Treino {
-    id? : number
-    descricao? : string
-    name? : string
-    data? : Date
-    exercicios? : Exercicio[]
-    isDone? : boolean
+  id?: number | null;
+  descricao?: string;
+  name?: string;
+  // data?: Date;
+  exercicios?: Exercicio[];
+  // isDone?: boolean;
 }

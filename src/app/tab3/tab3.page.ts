@@ -73,7 +73,7 @@ export class Tab3Page implements OnInit {
   }
 
   salvar() {
-    this.imc = this.calcularIMC(this.peso, this.altura)
+    this.imc = this.calcularIMC(this.peso, this.altura);
     const data: UserStats = {
       musculo: this.musculo,
       altura: this.altura,
@@ -83,8 +83,6 @@ export class Tab3Page implements OnInit {
       peso: this.peso,
       residuos: this.residuos,
       ultimaAvalicao: new Date().toLocaleDateString('en-GB'),
-      historico: this.userDetails?.historico || [],
-      treino: this.userDetails?.treino || []
     };
 
     this.userDetails = data;

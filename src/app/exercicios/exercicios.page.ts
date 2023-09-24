@@ -1,10 +1,9 @@
+import { Treino } from './../../model/estruturas';
 import { Component, Input, OnInit } from '@angular/core';
-import { Treino } from '../interfaces/treino';
-import { Exercicio } from '../interfaces/Exercicio';
-import { DatabaseService } from '../database.service';
+import { Exercicio } from '../interfaces/exercicio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserStats } from '../interfaces/user-stats';
-import { user } from '@angular/fire/auth';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-exercicios',
@@ -12,40 +11,38 @@ import { user } from '@angular/fire/auth';
   styleUrls: ['./exercicios.page.scss'],
 })
 export class ExerciciosPage implements OnInit {
-  @Input() treino: Treino;
-  @Input() userStats: UserStats;
+  // @Input() treino: Treino;
+  // @Input() userStats: UserStats;
   exercicios: Exercicio[] = [];
-  constructor(private databaseService: DatabaseService, private router: Router, private actRoute: ActivatedRoute) {
-    const id = this.actRoute.snapshot.paramMap.get('id') || 0;
-    const idNum: number = +id;
+  treino?: Treino | null;
+  id?: number;
+  constructor(
+    private databaseService: DatabaseService,
+    private router: Router,
+    private actRoute: ActivatedRoute
+  ) {}
 
-    this.treino = {};
-    this.userStats = {};
-    
-    this.databaseService.getUserStats().then(userStats => {
-      if (!!userStats && !!userStats.treino) {
-        this.userStats = userStats;
-        this.treino = userStats.treino[idNum - 1];
-      }
-    })
-  }
+  async ngOnInit() {
+    const id = this.actRoute.snapshot.paramMap.get('id');
+    if (id) {
+      this.id = Number(id);
+      await this.databaseService
+        .getTreinoById(this.id)
+        .then((e) => (this.treino = e as Treino))
+        .catch((e) => console.error(e));
+    }
 
-  ngOnInit() {
+    if (this.treino) {
+      this.exercicios = this.treino.exercicios;
+    }
   }
 
   terminarTreino() {
-    if (!!this.userStats && !this.userStats.historico) {
-      this.userStats.historico = [];
-    }
-
-    this.userStats.historico?.push({
-      name: this.treino.name,
-      descricao: this.treino.descricao,
-      dataConclusao: new Date().toLocaleDateString('en-GB')
+    this.databaseService.postHistorico({
+      nomeTreino: this.treino?.name as string,
+      categoria: this.treino?.descricao as string,
+      dataConclusao: new Date().toLocaleDateString('en-GB'),
     });
-
-    this.databaseService.updateUsuario(this.userStats);
     this.router.navigate(['tabs/tab2']);
-    }
-
+  }
 }
