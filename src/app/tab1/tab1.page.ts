@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Exercicio, Treino} from '../../model/estruturas'
-import { TreinoService } from '../services/treino.service';
-import { Router } from '@angular/router';
+import { Treino } from '../interfaces/treino';
+import { DatabaseService } from '../database.service';
+import { RouterEvent, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -9,14 +9,35 @@ import { Router } from '@angular/router';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
+  
   treinos : Treino [] = []
 
-  constructor(private serv: TreinoService, private router: Router) {
-    this.treinos = this.serv.treinos
+  constructor(private databaseService: DatabaseService, private router: Router) {
+    this.refresh(null);
   }
+
+  ngOnInit() {
+    
+  }
+
+  
 
   navToExercicios(item: Treino){
     this.router.navigate(["/exercicios/"+item.id])
   }
+
+  refresh(event: any) {
+    this.databaseService.getUserStats().then(e => {
+      this.databaseService.getUserStats().then((e) => {
+        if (e !== null) {
+          this.treinos = e.treino || [];
+        }
+      });
+      if (!!event) {
+        event.target.complete();
+      }
+    })
+  }
+
+  
 }
