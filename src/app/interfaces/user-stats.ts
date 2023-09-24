@@ -1,5 +1,5 @@
-import { Historico } from "./historico";
-import { Treino } from "./treino";
+import { Historico } from './historico';
+import { Treino } from './treino';
 
 export interface UserStats {
   altura?: number;
@@ -10,6 +10,6 @@ export interface UserStats {
   peso?: number;
   residuos?: number;
   ultimaAvalicao?: string;
-  treino?: Treino[];
-  historico?: Historico[];
+  // treino?: Treino[];
+  // historico?: Historico[];
 }

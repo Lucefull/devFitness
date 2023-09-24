@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <div class="container">
+  <div class="container" onload="refresh()">
     <div class="header">
       <img src="{{user?.photoURL}}" alt="" />
       <h1>{{user?.displayName}}</h1>
@@ -55,7 +55,11 @@
         <section>
           <div class="item">
             <p>musculo</p>
-            <ion-input [(ngModel)]="musculo" type="number" value="{{musculo}}" />
+            <ion-input
+              [(ngModel)]="musculo"
+              type="number"
+              value="{{musculo}}"
+            />
           </div>
           <div class="item">
             <p>gordura</p>
